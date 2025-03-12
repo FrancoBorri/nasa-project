@@ -7,9 +7,8 @@ class Astronomical_images(models.Model):
     date = models.DateField()
     description = models.TextField()
 
-
-class Meta:
-    db_table = "astronomical_images"
+    class Meta:
+        db_table = "astronomical_images"
 
 
 class Favourite_images(models.Model):
@@ -19,6 +18,5 @@ class Favourite_images(models.Model):
     )
     saved_at = models.DateTimeField(auto_now_add=True)
 
-
-class Meta:
-    db_table = "favourite_images"
+    class Meta:
+        db_table = "favourite_images"

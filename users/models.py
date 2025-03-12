@@ -13,4 +13,4 @@ class User(models.Model):
     )  # Fecha cada vez que se guarda el objeto
 
     class Meta:  # Metadatos de la clase
-        db_table = "users"
+        db_table = "User"

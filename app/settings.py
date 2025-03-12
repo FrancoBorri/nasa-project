@@ -25,7 +25,8 @@ SECRET_KEY = "django-insecure-*rra=^3u4o^%1(vdta)w*10qj)rcghtu)^c7v74gf_borp^(14
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+# Direcciones y dominios permitidos para que django los reconozca
+ALLOWED_HOSTS = ["0.0.0.0", "localhost", "127.0.0.1"]
 
 
 # Application definition
@@ -53,6 +54,9 @@ REST_FRAMEWORK = {
     "DEFAULT_AUTHENTICATION_CLASSES": (
         "rest_framework_simplejwt.authentication.JWTAuthentication",
     ),
+    "DEFAULT_PERMISSION_CLASSES": [
+        "rest_framework.permissions.IsAuthenticated",
+    ],
 }
 
 MIDDLEWARE = [
