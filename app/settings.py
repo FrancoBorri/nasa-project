@@ -28,6 +28,7 @@ DEBUG = True
 # Direcciones y dominios permitidos para que django los reconozca
 ALLOWED_HOSTS = ["0.0.0.0", "localhost", "127.0.0.1"]
 
+AUTH_USER_MODEL = "users.User" # Cambia el modelo de usuario por defecto de Django
 
 # Application definition
 
@@ -45,8 +46,6 @@ INSTALLED_APPS = [
     "rest_framework_simplejwt",
     # apps propias
     "users",
-    "asteroids",
-    "images",
 ]
 
 # Configuración de autenticación con JWT en lugar de sesiones

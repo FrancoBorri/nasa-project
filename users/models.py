@@ -1,16 +1,14 @@
-from django.db import models
+from django.contrib.auth.models import AbstractUser
+from django.db import  models
+    
+class User(AbstractUser):
+    username = models.CharField(max_length=50, unique=True)
+    email = models.EmailField(unique=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
 
-
-class User(models.Model):
-    user_name = models.CharField(max_length=50)  # varchar(50)
-    email = models.EmailField(unique=True)  # Evitar correos duplicados
-    password = models.CharField(max_length=128)
-    created_at = models.DateTimeField(
-        auto_now_add=True
-    )  # Fecha de cuando se crea el objeto
-    updated_at = models.DateTimeField(
-        auto_now=True
-    )  # Fecha cada vez que se guarda el objeto
-
-    class Meta:  # Metadatos de la clase
-        db_table = "User"
+    def __str__(self): # Muestra mas claro el email en el panel de admin
+        return self.email
+    
+    class Meta:
+        db_table = "user" # Nombre de la tabla en la base de datos
